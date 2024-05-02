@@ -216,25 +216,6 @@ int main() {
 			animator.tick(diffSeconds);
 		}
 		
-		//Controls
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Scan::L)) {
-			lightPos.x+= .001;
-		}
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Scan::I)) {
-			lightPos.y += .001;
-		}
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Scan::U)) {
-			lightPos.z += .001;
-		}
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Scan::J)) {
-			lightPos.x -= .001;
-		}
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Scan::K)) {
-			lightPos.y -= .001;
-		}
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Scan::O)) {
-			lightPos.z -= .001;
-		}
 		
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Scan::B)) {
 			o.setRotationalVelocity(Random());

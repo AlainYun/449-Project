@@ -62,8 +62,8 @@ Scene lightTest() {
 	std::vector<Texture> light = {
 	loadTexture("models/light.png", "baseTexture")
 	};
-	std::vector<Texture> wall = {
-	loadTexture("models/wall.jpg", "baseTexture")
+	std::vector<Texture> wall1 = {
+	loadTexture("models/White_marble_03/Textures_4K/white_marble_03_4k_baseColor.tga", "baseTexture")
 	};
 
 	auto bunny = assimpLoad("models/bunny_textured.obj", true);
@@ -72,7 +72,7 @@ Scene lightTest() {
 	bunny.setPosition(glm::vec3(0, 0, 0));
 	bunny.setMass(1.f);
 	
-	auto cmesh = Mesh3D::cube(wall);
+	auto cmesh = Mesh3D::cube(wall1);
 	auto mesh2 = Mesh3D::square(light);
 	auto square = Object3D(std::vector<Mesh3D>{mesh2});
 	auto square1 = Object3D(std::vector<Mesh3D>{mesh2});

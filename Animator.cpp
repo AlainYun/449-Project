@@ -15,6 +15,7 @@ void Animator::nextAnimation() {
 	}
 }
 
+
 void Animator::tick(float_t dt) {
 	// Advance the active animation by the given interval.
 	if (m_currentIndex >= 0) {
@@ -31,14 +32,23 @@ void Animator::tick(float_t dt) {
 			if (m_currentAnimation != nullptr) {
 				m_currentAnimation->tick(overTime);
 			}
+			m_parallelAnimationsStarted = true;
 		}
 		else {
 			m_currentAnimation->tick(dt);
+		}
+	}
+	if (m_parallelAnimationsStarted) {
+		for (auto* animation : m_panimations) {
+			if (animation->currentTime() < animation->duration()) {
+				animation->tick(dt);
+			}
 		}
 	}
 }
 
 void Animator::start() {
 	m_currentTime = 0;
+	m_parallelAnimationsStarted = false;
 	nextAnimation();
 }

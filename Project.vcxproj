@@ -134,6 +134,7 @@
     <ClInclude Include="Animation.h" />
     <ClInclude Include="Animator.h" />
     <ClInclude Include="AssimpImport.h" />
+    <ClInclude Include="Camera.h" />
     <ClInclude Include="Mesh3D.h" />
     <ClInclude Include="Object3D.h" />
     <ClInclude Include="RotationAnimation.h" />

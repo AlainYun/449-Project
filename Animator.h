@@ -2,6 +2,8 @@
 #include <memory>
 #include "Animation.h"
 #include "RotationAnimation.h"
+#include "TranslationAnimation.h"
+#include "PauseAnimation.h"
 
 class Animator {
 private:
@@ -17,6 +19,8 @@ private:
 	 * @brief The sequence of animations to play.
 	 */
 	std::vector<std::unique_ptr<Animation>> m_animations;
+	std::vector<Animation*> m_panimations;
+	bool m_parallelAnimationsStarted = false;
 	/**
 	 * @brief The current (active) animation.
 	 */
@@ -45,8 +49,11 @@ public:
 	/**
 	 * @brief Add an Animation to the end of the animation sequence.
 	 */
-	void addAnimation(std::unique_ptr<Animation> animation) {
+	void addAnimation(std::unique_ptr<Animation> animation, bool isParallel = false) {
 		m_animations.emplace_back(std::move(animation));
+		if (isParallel) {
+			m_panimations.push_back(m_animations.back().get());
+		}
 	}
 
 	/**
